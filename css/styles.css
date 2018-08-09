@@ -1,6 +1,9 @@
 @charset "utf-8";
 /* CSS Document */
-
+body, html {
+	width: 100%;
+	height: 100%;
+}
 body,td,th,p{
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 10pt;
@@ -8,7 +11,7 @@ body,td,th,p{
 	line-height: 1.5;
 }
 body {
-	background-color: #fdfdfd;
+	background-color: #fcfcfc;
 	margin: 0;
 	position:relative;
 }
@@ -32,12 +35,22 @@ h1, h2, h3, h4, h5, h6 {
   font-family: Arial, Helvetica, sans-serif;
   margin: 0 0 20px;
 }
+h2 {
+	text-align: center;
+	font-weight: 100;
+	font-size: 17px;
+	letter-spacing: 1px;
+}
 article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
 	display: block;
 }
+img {
+	max-width: 100%;
+}
 #maincontent {
-  background-color: #f3f3f3;
+  background-color: #fcfcfc;
   min-height: 100%;
+	margin-top: 60px;
 }
 #footer {
   background-color: #444;
@@ -49,21 +62,28 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
   text-transform: uppercase;
 }
 /* ====================== Navigation ====================== */
+header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 2000;
+}
 nav {
   width: 100%;
-  height: 80px;
   background-color: #252831;
-  text-align:center;
+  text-align: center;
+	padding: 10px 0px;
 }
 nav h1 {
   margin: auto;
 }
 nav h1 a {
-  color: #fff;
-  font-size: 14pt;
-  font-weight: 200;
-  letter-spacing: 10px;
-  text-transform: uppercase;
+	color: #fff;
+	font-size: 18px;
+	font-weight: 100;
+	letter-spacing: 4px;
+	text-transform: uppercase;
 }
 #breadcrumb {
     padding: 10px 40px 16px;
@@ -99,60 +119,71 @@ nav h1 a {
 }
 /* ====================== Map ====================== */
 #map {
-  height: 400px;
+  height: 300px;
   width: 100%;
   background-color: #ccc;
+}
+
+#map-container h2 {
+	margin: 10px 0;
+}
+/* ====================== Restaurant Listing Section ====================== */
+.restaurants-list-section {
+	margin-top: 20px;
 }
 /* ====================== Restaurant Filtering ====================== */
 .filter-options {
   width: 100%;
-  height: 50px;
-  background-color: #3397DB;
+  background-color: #45647a;
   align-items: center;
+	text-align: center;
+	padding: 15px 0;
 }
 .filter-options h2 {
   color: white;
   font-size: 1rem;
   font-weight: normal;
   line-height: 1;
-  margin: 0 20px;
+  margin-bottom: 10px;
 }
 .filter-options select {
   background-color: white;
   border: 1px solid #fff;
   font-family: Arial,sans-serif;
   font-size: 11pt;
-  height: 35px;
   letter-spacing: 0;
-  margin: 10px;
-  padding: 0 10px;
-  width: 200px;
+  padding: 20px;
+  width: 60%;
+	min-height: 40px;
+	height: 40px;
+}
+
+.filter-options select:nth-child(2) { /* first child is h2 */
+  margin-bottom: 30px;
 }
 
 /* ====================== Restaurant Listing ====================== */
 #restaurants-list {
-  background-color: #f3f3f3;
+  background-color: #fcfcfc;
   list-style: outside none none;
   margin: 0;
-  padding: 30px 15px 60px;
+  padding: 10px;
   text-align: center;
 }
 #restaurants-list li {
   background-color: #fff;
   border: 2px solid #ccc;
   font-family: Arial,sans-serif;
-  margin: 15px;
   min-height: 380px;
-  padding: 0 30px 25px;
+  padding: 0;
+	margin: 10px 5px;
   text-align: left;
-  width: 270px;
 }
 #restaurants-list .restaurant-img {
   background-color: #ccc;
   display: block;
   margin: 0;
   max-width: 100%;
-  min-height: 248px;
   min-width: 100%;
 }
 #restaurants-list li h1 {
@@ -165,13 +196,16 @@ nav h1 a {
   margin: 20px 0 10px;
   text-transform: uppercase;
 }
+#restaurants-list li span {
+  margin: 0 10px 20px 10px;
+	display: inline-block;
+}
 #restaurants-list p {
   margin: 0;
   font-size: 11pt;
 }
 #restaurants-list li a {
   background-color: orange;
-  border-bottom: 3px solid #eee;
   color: #fff;
   display: inline-block;
   font-size: 10pt;
@@ -187,7 +221,6 @@ nav h1 a {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 1000;
 }
 .inside #map-container {
   background: blue none repeat scroll 0 0;
@@ -258,7 +291,7 @@ nav h1 a {
 }
 #reviews-list li {
   background-color: #fff;
-    border: 2px solid #f3f3f3;
+    border: 2px solid #fcfcfc;
   display: block;
   list-style-type: none;
   margin: 0 0 30px;
