@@ -89,11 +89,27 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
 
   const picture = document.getElementById('restaurant-picture');
 
-  // TODO: change to picture element. Check device width and screen resolution
+  const sourceLarge = document.createElement('source');
+  sourceLarge.media = '(min-width: 800px)';
+  sourceLarge.srcset = DBHelper.imageUrlForRestaurant(restaurant, { size: 'large', wide: true });
+  sourceLarge.type = 'image/jpeg';
+  picture.appendChild(sourceLarge);
+
+  const sourceMedium = document.createElement('source');
+  sourceMedium.media = '(min-width: 600px)';
+  sourceMedium.srcset = DBHelper.imageUrlForRestaurant(restaurant, { size: 'medium' });
+  sourceMedium.type = 'image/jpeg';
+  picture.appendChild(sourceMedium);
+
+  const sourceSmall = document.createElement('source');
+  sourceSmall.srcset = DBHelper.imageUrlForRestaurant(restaurant, { size: 'small' });
+  sourceSmall.type = 'image/jpeg';
+  picture.appendChild(sourceSmall);
+
   const image = document.createElement('img');
   image.className = 'restaurant-img';
-  image.src = DBHelper.imageUrlForRestaurant(restaurant, { wide: true });
-
+  // set default size in case picture element is not supported
+  image.src = DBHelper.imageUrlForRestaurant(restaurant);
   picture.appendChild(image);
 
   const cuisine = document.getElementById('restaurant-cuisine');
