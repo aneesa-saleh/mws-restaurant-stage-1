@@ -180,8 +180,9 @@ createRestaurantHTML = (restaurant) => {
   image.className = 'restaurant-img';
   // set default size in case picture element is not supported
   image.src = DBHelper.imageUrlForRestaurant(restaurant, { size: 'medium'});
-
+  image.alt = restaurant.alt;
   picture.appendChild(image);
+
   li.append(picture);
 
   const span = document.createElement('span');

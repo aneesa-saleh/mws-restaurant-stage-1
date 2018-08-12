@@ -110,6 +110,7 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
   image.className = 'restaurant-img';
   // set default size in case picture element is not supported
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
+  image.alt = restaurant.alt;
   picture.appendChild(image);
 
   const cuisine = document.getElementById('restaurant-cuisine');
