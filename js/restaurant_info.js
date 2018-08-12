@@ -89,7 +89,8 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
 
   const image = document.getElementById('restaurant-img');
   image.className = 'restaurant-img'
-  image.src = DBHelper.imageUrlForRestaurant(restaurant);
+  // TODO: change to picture element. Check device width and screen resolution
+  image.src = DBHelper.imageUrlForRestaurant(restaurant, { wide: false });
 
   const cuisine = document.getElementById('restaurant-cuisine');
   cuisine.innerHTML = restaurant.cuisine_type;
