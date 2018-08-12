@@ -159,12 +159,27 @@ fillRestaurantsHTML = (restaurants = self.restaurants) => {
 createRestaurantHTML = (restaurant) => {
   const li = document.createElement('li');
 
-  // TODO: change to picture element. Check device width and screen resolution
   const picture = document.createElement('picture');
+
+  // a two-column layout is used for larger viewports
+  // medium images are displayed for wide single-column (451px - 749px) and wide 2-column viewports (>= 950px)
+  const sourceMedium = document.createElement('source');
+  sourceMedium.media = '(min-width: 451px) and (max-width: 749px), (min-width: 950px)';
+  sourceMedium.srcset = DBHelper.imageUrlForRestaurant(restaurant, { size: 'medium' });
+  sourceMedium.type = 'image/jpeg';
+  picture.appendChild(sourceMedium);
+
+  // small images are displayed for small single-column (<= 450px) and small 2-column viewports (750px - 949px)
+  const sourceSmall = document.createElement('source');
+  sourceSmall.media = '(max-width: 450px), (min-width: 750px) and (max-width: 949px)';
+  sourceSmall.srcset = DBHelper.imageUrlForRestaurant(restaurant, { size: 'small' });
+  sourceSmall.type = 'image/jpeg';
+  picture.appendChild(sourceSmall);
 
   const image = document.createElement('img');
   image.className = 'restaurant-img';
-  image.src = DBHelper.imageUrlForRestaurant(restaurant, { wide: false });
+  // set default size in case picture element is not supported
+  image.src = DBHelper.imageUrlForRestaurant(restaurant, { size: 'medium'});
 
   picture.appendChild(image);
   li.append(picture);
