@@ -87,10 +87,14 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
   const address = document.getElementById('restaurant-address');
   address.innerHTML = restaurant.address;
 
-  const image = document.getElementById('restaurant-img');
-  image.className = 'restaurant-img'
+  const picture = document.getElementById('restaurant-picture');
+
   // TODO: change to picture element. Check device width and screen resolution
-  image.src = DBHelper.imageUrlForRestaurant(restaurant, { wide: false });
+  const image = document.createElement('img');
+  image.className = 'restaurant-img';
+  image.src = DBHelper.imageUrlForRestaurant(restaurant, { wide: true });
+
+  picture.appendChild(image);
 
   const cuisine = document.getElementById('restaurant-cuisine');
   cuisine.innerHTML = restaurant.cuisine_type;

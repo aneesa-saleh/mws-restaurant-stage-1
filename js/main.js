@@ -159,10 +159,15 @@ fillRestaurantsHTML = (restaurants = self.restaurants) => {
 createRestaurantHTML = (restaurant) => {
   const li = document.createElement('li');
 
+  // TODO: change to picture element. Check device width and screen resolution
+  const picture = document.createElement('picture');
+
   const image = document.createElement('img');
   image.className = 'restaurant-img';
-  image.src = DBHelper.imageUrlForRestaurant(restaurant);
-  li.append(image);
+  image.src = DBHelper.imageUrlForRestaurant(restaurant, { wide: false });
+
+  picture.appendChild(image);
+  li.append(picture);
 
   const span = document.createElement('span');
 

@@ -355,12 +355,12 @@ nav h1 a {
 	margin: 10px 0;
 	position: relative;
 }
-#restaurant-img {
+.restaurant-img {
 	width: 100%;
 	display: block;
 	border-top-left-radius: 15px;
 }
-#restaurant-img, #restaurant-cuisine {
+.restaurant-img, #restaurant-cuisine {
 	border-bottom-right-radius: 15px;
 }
 #restaurant-cuisine {
