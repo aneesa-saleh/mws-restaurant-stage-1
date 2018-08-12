@@ -226,13 +226,15 @@ nav h1 a {
   text-align: center;
 }
 #restaurants-list li {
-  background-color: #fff;
-  border: 2px solid #ccc;
-  min-height: 380px;
-  padding: 0;
+	background-color: #fff;
+	border: 1px solid #ccc;
+	min-height: 380px;
+	padding: 0;
 	margin: 10px auto;
-  text-align: left;
+	text-align: left;
 	max-width: 500px;
+	border-bottom-right-radius: 15px;
+	border-top-left-radius: 15px;
 }
 #restaurants-list .restaurant-img {
   background-color: #ccc;
@@ -240,6 +242,7 @@ nav h1 a {
   margin: 0;
   max-width: 100%;
   min-width: 100%;
+	border-bottom-right-radius: 0;
 }
 #restaurants-list li h1 {
   color: #f18200;
