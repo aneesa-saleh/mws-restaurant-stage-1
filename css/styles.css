@@ -20,7 +20,7 @@ ul, li {
 	color: #333;
 }
 a {
-	color: orange;
+	color: #A36A00;
 	text-decoration: none;
 }
 a:hover, a:focus {
@@ -51,13 +51,16 @@ img {
 	margin-top: 50px;
 }
 #footer {
-  background-color: #444;
-  color: #aaa;
+  background-color: #303030;
+  color: #BDBDBD;
   font-size: 12pt;
   letter-spacing: 1px;
   padding: 25px;
   text-align: center;
   text-transform: uppercase;
+}
+#footer strong {
+	color: #DC831E;
 }
 .off-screen {
 	position: absolute;
@@ -111,7 +114,7 @@ nav {
 
 /* Add a color to all links inside the list */
 #breadcrumb li a {
-    color: #0275d8;
+    color: #024C8D;
     text-decoration: none;
 }
 
@@ -223,7 +226,7 @@ nav {
 	border-bottom-right-radius: 0;
 }
 #restaurants-list li h1 {
-  color: #f18200;
+  color: #AD5C00;
   font-size: 14pt;
   font-weight: 400;
   letter-spacing: 0;
@@ -240,7 +243,7 @@ nav {
   font-size: 11pt;
 }
 #restaurants-list li a {
-  background-color: orange;
+  background-color: #A36A00;
   color: #fff;
   display: inline-block;
   font-size: 12pt;
@@ -252,7 +255,7 @@ nav {
 }
 #restaurants-list li a:focus,
 #restaurants-list li a:active {
-  background-color: #2d2b2b;
+  background-color: #773A15;
   text-decoration: underline;
 }
 
@@ -282,7 +285,7 @@ nav {
 	margin-top: 101px;
 }
 #restaurant-name {
-  color: #f18200;
+  color: #C7781B;
 	font-weight: 400;
 	font-size: 20px;
   letter-spacing: 1px;
@@ -410,11 +413,13 @@ nav {
 
 /***** opening hours *****/
 #reviews-container h2, #opening-hours-container caption {
-  color: #f58500;
   font-size: 20px;
   font-weight: 400;
   letter-spacing: 1px;
 	margin: 10px 0;
+}
+#opening-hours-container caption {
+	color: #A66317;
 }
 #restaurant-hours {
 	width: 100%;
@@ -453,6 +458,9 @@ nav {
 	background-color: #f2f2f2;
 	padding: 10px 0;
 	margin-top: 10px;
+}
+#reviews-container h2 {
+	color: #995B15;
 }
 #reviews-list {
   margin: 0;
@@ -496,7 +504,7 @@ nav {
 	font-weight: 200;
 }
 .review-rating {
-	background-color: #f58500;
+	background-color: #AB6617;
 	display: inline-block;
 	color: white;
 	text-transform: uppercase;
@@ -526,4 +534,9 @@ nav {
 	.review {
 		width: 80%;
 	}
+}
+
+/***** leaflet *****/
+.leaflet-container a {
+    color: #005475 !important;
 }
