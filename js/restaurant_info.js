@@ -1,11 +1,17 @@
 let restaurant;
 var newMap;
+let matchesMediaQuery;
+let mediaQuery = '(min-width: 800px)';
 
 /**
  * Initialize map as soon as the page is loaded.
  */
 document.addEventListener('DOMContentLoaded', (event) => {
   initMap();
+  if (window.matchMedia) {
+    matchesMediaQuery = window.matchMedia(mediaQuery).matches;
+  }
+  updateRestaurantContainerAria(); // set initial aria values
 });
 
 /**
@@ -36,21 +42,35 @@ initMap = () => {
   });
 }
 
-/* window.initMap = () => {
-  fetchRestaurantFromURL((error, restaurant) => {
-    if (error) { // Got an error!
-      console.error(error);
-    } else {
-      self.map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 16,
-        center: restaurant.latlng,
-        scrollwheel: false
-      });
-      fillBreadcrumb();
-      DBHelper.mapMarkerForRestaurant(self.restaurant, self.map);
+/**
+* Update aria-hidden values of the visible and accessible restaurant containers
+*/
+window.addEventListener('resize', () => {
+  if (window.matchMedia) {
+    const nextMatchesMediaQuery = window.matchMedia(mediaQuery).matches;
+    if (nextMatchesMediaQuery !== matchesMediaQuery) { // only update aria when layout changes
+      matchesMediaQuery = nextMatchesMediaQuery;
+      updateRestaurantContainerAria();
     }
-  });
-} */
+  }
+});
+
+/**
+* Set aria-hidden values for visible and regular restaurant containers
+* Accessible restaurant container is off screen
+* It is required to maintain screen reading order when the layout shifts
+*/
+updateRestaurantContainerAria = () => {
+  const restaurantContainer = document.getElementById('restaurant-container');
+  const accessibleRestaurantContainer = document.getElementById('accessible-restaurant-container');
+  if (matchesMediaQuery) { // larger layout, screen reading order off
+    restaurantContainer.setAttribute('aria-hidden', 'true');
+    accessibleRestaurantContainer.setAttribute('aria-hidden', 'false');
+  } else { // use regular reading order
+    restaurantContainer.setAttribute('aria-hidden', 'false');
+    accessibleRestaurantContainer.setAttribute('aria-hidden', 'true');
+  }
+}
 
 /**
  * Get current restaurant from page URL.
@@ -85,7 +105,7 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
   name.innerHTML = restaurant.name;
 
   const address = document.getElementById('restaurant-address');
-  address.innerHTML = restaurant.address;
+  address.innerHTML += restaurant.address;
 
   const picture = document.getElementById('restaurant-picture');
 
@@ -113,8 +133,14 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
   image.alt = restaurant.alt;
   picture.appendChild(image);
 
+  const accessibleRestaurantImage = document.getElementById('accessible-restaurant-img');
+  accessibleRestaurantImage.setAttribute('aria-label', restaurant.alt);
+
   const cuisine = document.getElementById('restaurant-cuisine');
-  cuisine.innerHTML = restaurant.cuisine_type;
+  cuisine.innerHTML = `Cuisine: ${restaurant.cuisine_type}`;
+
+  const accessibleRestaurantCuisine = document.getElementById('accessible-restaurant-cuisine');
+  accessibleRestaurantCuisine.innerHTML = `Cuisine: ${restaurant.cuisine_type}`;
 
   // fill operating hours
   if (restaurant.operating_hours) {
