@@ -215,13 +215,12 @@ nav {
   margin: 10px;
 }
 .filter-options select {
-  background-color: white;
-  border: 1px solid #fff;
-  font-size: 11pt;
-  letter-spacing: 0;
-  padding: 20px;
-  width: 70%;
-	min-height: 40px;
+	background-color: white;
+	font-size: 11pt;
+	letter-spacing: 0;
+	padding: 5px;
+	width: 70%;
+	min-height: 48px;
 	height: 40px;
 	border: 1px solid lightgray;
 	margin: 16px auto;
