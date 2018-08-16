@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     matchesMediaQuery = window.matchMedia(mediaQuery).matches;
   }
   updateRestaurantContainerAria(); // set initial aria values
+  registerServiceWorker();
 });
 
 /**
@@ -253,4 +254,11 @@ getParameterByName = (name, url) => {
   if (!results[2])
     return '';
   return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+
+registerServiceWorker = () => {
+  if(!navigator.serviceWorker) return;
+
+  navigator.serviceWorker.register('/service-worker.js')
+    .catch(error => console.log(error));
 }
