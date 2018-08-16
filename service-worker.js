@@ -1,8 +1,8 @@
 const staticCacheName = 'restaurant-reviews-static-v2';
 
-self.addEventListener('install', function(event) {
+self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.open(staticCacheName).then((cache) => cache.addAll([
+    caches.open(staticCacheName).then(cache => cache.addAll([
       '/',
       '/restaurant.html',
       '/css/styles.css',
@@ -24,9 +24,8 @@ self.addEventListener('install', function(event) {
       'https://unpkg.com/leaflet@1.3.1/dist/images/marker-icon.png',
       'https://unpkg.com/leaflet@1.3.1/dist/images/marker-icon-2x.png',
       'https://unpkg.com/leaflet@1.3.1/dist/images/marker-shadow.png',
-    ])
-  ).catch(error => console.log(error))
-)
+    ])).catch(error => console.log(error)),
+  );
 });
 self.addEventListener('activate', (event) => {
   // delete the old versions of the cache
@@ -34,14 +33,14 @@ self.addEventListener('activate', (event) => {
     caches.keys().then(cacheNames => Promise.all(
       cacheNames.filter(cacheName => (
         cacheName.startsWith('restaurant-reviews-') && cacheName !== staticCacheName
-      )).map(cacheName => caches.delete(cacheName))
-    )).catch(error => console.log(error))
+      )).map(cacheName => caches.delete(cacheName)),
+    )).catch(error => console.log(error)),
   );
 });
 
 self.addEventListener('fetch', (event) => {
   event.respondWith(
     caches.match(event.request)
-      .then(response => response || fetch(event.request))
+      .then(response => response || fetch(event.request)),
   );
 });
