@@ -146,7 +146,7 @@ fillRestaurantsHTML = (restaurants = self.restaurants) => {
  * Create restaurant HTML.
  */
 createRestaurantHTML = (restaurant) => {
-  const li = document.createElement('li');
+  const article = document.createElement('article');
 
   const picture = document.createElement('picture');
 
@@ -172,7 +172,7 @@ createRestaurantHTML = (restaurant) => {
   image.alt = restaurant.alt;
   picture.appendChild(image);
 
-  li.append(picture);
+  article.append(picture);
 
   const span = document.createElement('span');
 
@@ -194,9 +194,9 @@ createRestaurantHTML = (restaurant) => {
   more.href = DBHelper.urlForRestaurant(restaurant);
   span.append(more);
 
-  li.append(span);
+  article.append(span);
 
-  return li
+  return article;
 }
 
 /**

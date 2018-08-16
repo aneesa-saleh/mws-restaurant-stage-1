@@ -39,7 +39,7 @@ h2 {
 	font-size: 18px;
 	letter-spacing: 1px;
 }
-article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 img {
@@ -248,7 +248,7 @@ nav {
   padding: 10px;
   text-align: center;
 }
-#restaurants-list li {
+#restaurants-list article {
 	background-color: #fff;
 	border: 1px solid #ccc;
 	min-height: 380px;
@@ -267,7 +267,7 @@ nav {
   min-width: 100%;
 	border-bottom-right-radius: 0;
 }
-#restaurants-list li h1 {
+#restaurants-list article h1 {
   color: #AD5C00;
   font-size: 14pt;
   font-weight: 400;
@@ -276,7 +276,7 @@ nav {
   margin: 20px 0 10px;
   text-transform: uppercase;
 }
-#restaurants-list li span {
+#restaurants-list article span {
   margin: 0 10px 20px 10px;
 	display: inline-block;
 }
@@ -284,7 +284,7 @@ nav {
   margin: 0;
   font-size: 11pt;
 }
-#restaurants-list li a {
+#restaurants-list article a {
   background-color: #A36A00;
   color: #fff;
   display: inline-block;
@@ -295,8 +295,8 @@ nav {
   text-decoration: none;
   text-transform: uppercase;
 }
-#restaurants-list li a:focus,
-#restaurants-list li a:active {
+#restaurants-list article a:focus,
+#restaurants-list article a:active {
   background-color: #2e323a;
   text-decoration: underline;
 	outline: 0;
@@ -313,7 +313,7 @@ nav {
 		margin-left: auto;
 		margin-right: auto;
 	}
-	#restaurants-list li {
+	#restaurants-list article {
 		width: calc(50% - 22px);
 		margin: 10px;
 	}

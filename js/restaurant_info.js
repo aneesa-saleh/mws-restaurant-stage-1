@@ -197,8 +197,8 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
  * Create review HTML and add it to the webpage.
  */
 createReviewHTML = (review) => {
-  const li = document.createElement('li');
-  li.className = 'review';
+  const article = document.createElement('article');
+  article.className = 'review';
 
   const headerSpan = document.createElement('span');
   headerSpan.className = 'review-header';
@@ -212,7 +212,7 @@ createReviewHTML = (review) => {
   date.innerHTML = review.date;
   date.className = 'review-date';
   headerSpan.appendChild(date);
-  li.appendChild(headerSpan);
+  article.appendChild(headerSpan);
 
   const contentSpan = document.createElement('span');
   contentSpan.className = 'review-content';
@@ -225,15 +225,15 @@ createReviewHTML = (review) => {
   const comments = document.createElement('p');
   comments.innerHTML = review.comments;
   contentSpan.appendChild(comments);
-  li.appendChild(contentSpan);
+  article.appendChild(contentSpan);
 
-  return li;
+  return article;
 }
 
 /**
  * Add restaurant name to the breadcrumb navigation menu
  */
-fillBreadcrumb = (restaurant=self.restaurant) => {
+fillBreadcrumb = (restaurant = self.restaurant) => {
   const breadcrumb = document.getElementById('breadcrumb');
   const li = document.createElement('li');
   li.innerHTML = restaurant.name;
