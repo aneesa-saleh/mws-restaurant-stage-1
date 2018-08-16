@@ -27,7 +27,7 @@ a:hover, a:focus {
 	color: #3397db;
 	text-decoration: none;
 }
-a img{
+a img {
 	border: none 0px #fff;
 }
 h1, h2, h3, h4, h5, h6 {
@@ -214,14 +214,17 @@ nav {
   border: 1px solid lightgray;
   margin: 10px;
 }
+.filter-options legend {
+	font-size: 13pt;
+}
 .filter-options select {
 	background-color: white;
-	font-size: 11pt;
+	font-size: 12pt;
 	letter-spacing: 0;
 	padding: 5px;
 	width: 70%;
 	min-height: 48px;
-	height: 40px;
+	height: 48px;
 	border: 1px solid lightgray;
 	margin: 16px auto;
 }
@@ -287,7 +290,7 @@ nav {
   display: inline-block;
   font-size: 12pt;
   margin: 15px 0 0;
-  padding: 8px 30px 10px;
+  padding: 12px 30px;
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
