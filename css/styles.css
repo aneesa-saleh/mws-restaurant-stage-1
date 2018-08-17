@@ -241,8 +241,12 @@ nav {
 	width: auto;
 }
 /* ====================== Restaurant Listing Section ====================== */
-.restaurants-list-section {
+.restaurants-list-section, .restaurants-list-section:target {
 	margin-top: 20px;
+}
+.restaurants-list-section:target {
+	margin-top: 0;
+  padding-top: 30px;
 }
 /* ====================== Restaurant Filtering ====================== */
 .filter-options {
