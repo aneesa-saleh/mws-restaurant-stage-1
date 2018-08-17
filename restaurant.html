@@ -20,7 +20,7 @@
     <!-- Beginning nav -->
     <nav>
       <!-- Beginning breadcrumb -->
-      <ul id="breadcrumb" >
+      <ul id="breadcrumb" class="breadcrumb" >
         <li><a href="/">Home</a></li>
       </ul>
       <!-- End breadcrumb -->
@@ -30,37 +30,37 @@
   <!-- End header -->
 
   <!-- Beginning main -->
-  <main id="maincontent">
-    <h1 id="restaurant-name"></h1>
+  <main class="main-content">
+    <h1 id="restaurant-name" class="restaurant-name"></h1>
     <!-- Beginning map -->
     <div id="accessible-restaurant-container" class="off-screen">
       <span role="img" id="accessible-restaurant-img"></span>
       <span id="accessible-restaurant-cuisine"></span>
     </div>
-    <section id="map-container">
-      <div id="map" aria-describedby="restaurant-address"></div>
-      <p id="restaurant-address">
+    <section class="map-container">
+      <div id="map" class="map" aria-describedby="restaurant-address"></div>
+      <p id="restaurant-address" class="restaurant-address">
         <span class="off-screen">Address:</span>
       </p>
     </section>
     <!-- End map -->
     <!-- Beginning restaurant -->
-    <section id="restaurant-container">
+    <section id="restaurant-container" class="restaurant-container">
       <figure class="restaurant-img-container">
         <picture id="restaurant-picture"></picture>
-        <figcaption id="restaurant-cuisine"></figcaption>
+        <figcaption id="restaurant-cuisine" class="restaurant-cuisine"></figcaption>
       </figure>
     </section>
     <!-- end restaurant -->
     <!-- Beginning opening hours -->
-    <section id="opening-hours-container">
-      <table id="restaurant-hours">
+    <section id="opening-hours-container" class="opening-hours-container">
+      <table id="restaurant-hours" class="restaurant-hours">
         <caption>Opening hours</caption>
       </table>
     </section>
     <!-- end opening hours -->
     <!-- Beginning reviews -->
-    <section id="reviews-container">
+    <section id="reviews-container" class="reviews-container">
       <div id="reviews-list"></ul>
     </section>
     <!-- End reviews -->
@@ -68,7 +68,7 @@
   <!-- End main -->
 
   <!-- Beginning footer -->
-  <footer id="footer">
+  <footer class="footer">
     Copyright (c) 2017 <strong>Restaurant Reviews</strong> All Rights Reserved.
   </footer>
   <!-- End footer -->
