@@ -157,17 +157,19 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
 fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => {
   const hours = document.getElementById('restaurant-hours');
   for (const key in operatingHours) {
-    const row = document.createElement('tr');
+    if (operatingHours.hasOwnProperty(key)) {
+      const row = document.createElement('tr');
 
-    const day = document.createElement('td');
-    day.innerHTML = key;
-    row.appendChild(day);
+      const day = document.createElement('td');
+      day.innerHTML = key;
+      row.appendChild(day);
 
-    const time = document.createElement('td');
-    time.innerHTML = operatingHours[key];
-    row.appendChild(time);
+      const time = document.createElement('td');
+      time.innerHTML = operatingHours[key];
+      row.appendChild(time);
 
-    hours.appendChild(row);
+      hours.appendChild(row);
+    }
   }
 };
 
@@ -244,7 +246,7 @@ fillBreadcrumb = (restaurant = self.restaurant) => {
  * Get a parameter by name from page URL.
  */
 getParameterByName = (name, url) => {
-  if (!url) url = window.location.href;
+  url = url || window.location.href;
   name = name.replace(/[\[\]]/g, '\\$&');
   const regex = new RegExp(`[?&]${name}(=([^&#]*)|&|#|$)`);
 
