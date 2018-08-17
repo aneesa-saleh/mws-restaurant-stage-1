@@ -157,7 +157,7 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
 fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => {
   const hours = document.getElementById('restaurant-hours');
   for (const key in operatingHours) {
-    if (operatingHours.hasOwnProperty(key)) {
+    if (Object.prototype.hasOwnProperty.call(operatingHours, key)) {
       const row = document.createElement('tr');
 
       const day = document.createElement('td');
