@@ -1,6 +1,15 @@
-module.exports = function(grunt) {
-
+function setup(grunt) {
   grunt.initConfig({
+    favicons: {
+      options: {
+        html: 'index.html',
+        HTMLPrefix: 'img/favicon/',
+      },
+      icons: {
+        src: 'img_src/restaurant.png',
+        dest: 'img/favicon',
+      },
+    },
     responsive_images: {
       dev: {
         options: {
@@ -11,15 +20,15 @@ module.exports = function(grunt) {
             { width: 600, quality: 60, suffix: '_medium_1x' },
             { width: 800, quality: 60, suffix: '_small_2x' },
             { width: 400, quality: 60, suffix: '_small_1x' },
-          ]
+          ],
         },
         files: [{
           expand: true,
           src: ['*.jpg'],
           cwd: 'img_src/',
-          dest: 'img/'
-        }]
-      }
+          dest: 'img/',
+        }],
+      },
     },
 
     /* Clear out the images directory if it exists */
@@ -33,7 +42,7 @@ module.exports = function(grunt) {
     mkdir: {
       dev: {
         options: {
-          create: ['img']
+          create: ['img', 'img/favicon']
         },
       },
     },
@@ -42,6 +51,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-responsive-images');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-mkdir');
-  grunt.registerTask('default', ['clean', 'mkdir', 'responsive_images']);
+  grunt.loadNpmTasks('grunt-favicons');
+  grunt.registerTask('default', ['clean', 'mkdir', 'responsive_images', 'favicons']);
+}
 
-};
+module.exports = setup;
