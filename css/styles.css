@@ -78,7 +78,7 @@ img {
 
 .main-content {
   background-color: #fcfcfc;
-	margin-top: 53px;
+	margin-top: 48px;
   min-height: 100%;
 }
 
@@ -103,18 +103,17 @@ img {
 
 @media screen and (min-width: 600px) {
 	.main-content {
-    margin-top: 59px;
+    margin-top: 54px;
 	}
 }
 
 @media screen and (min-width: 800px) {
 	.main-content {
-    margin-top: 63px;
+    margin-top: 58px;
 	}
 }
 /* ====================== Navigation ====================== */
 header {
-	background-color: #252831;
 	left: 0;
 	position: fixed;
 	top: 0;
@@ -123,7 +122,8 @@ header {
 }
 
 header h1 {
-	margin-bottom: 5px;
+	background-color: #252831;
+	margin-bottom: 0;
 	padding: 0;
 	text-align: center;
 	width: 100%;
@@ -192,7 +192,7 @@ nav {
 	}
 
 	.breadcrumb li {
-	    font-size: 19px;
+	    font-size: 18px;
 	}
 }
 /* ====================== Map ====================== */
@@ -378,7 +378,7 @@ nav {
 
 /***** Main *****/
 .inside .main-content {
-	margin-top: 101px;
+	margin-top: 93px;
 }
 
 .restaurant-name {
@@ -396,7 +396,7 @@ nav {
 
 @media screen and (min-width: 600px) {
 	.inside .main-content {
-    margin-top: 102px;
+    margin-top: 99px;
 	}
 
 	.restaurant-name {
@@ -410,7 +410,7 @@ nav {
 		flex-wrap: wrap;
 		margin-left: auto;
 		margin-right: auto;
-		margin-top: 110px;
+		margin-top: 106px;
 		max-width: 1000px;
 		padding: 0 20px;
 	}
